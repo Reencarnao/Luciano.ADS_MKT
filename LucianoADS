@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LucianoGrowth • Campañas TOFU + MOFU para Negocios Locales</title>
+  <meta name="description" content="Marca personal de Luciano: gestión de campañas TOFU + MOFU para negocios locales que quieren crecer en Instagram con baja inversión.">
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --bg: #0b1120;
+      --bg-light: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #22c55e;
+      --card: #0f172a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1d283a, #020617 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    .brand-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+    }
+
+    .nav-tagline {
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 32px;
+      padding: 32px 0 40px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.3rem, 3.1vw + 1.4rem, 3.6rem);
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #60a5fa, #a855f7, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 470px;
+      margin-bottom: 22px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .hero-badges span {
+      font-size: .8rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, .85);
+      border: 1px solid rgba(148, 163, 184, .25);
+      color: var(--muted);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-size: .95rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      box-shadow: 0 18px 35px rgba(37, 99, 235, .30);
+    }
+
+    .btn-primary span.arrow {
+      font-size: 1.1rem;
+    }
+
+    .hero-note {
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    .hero-note strong {
+      color: var(--accent);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(59, 130, 246, .45), rgba(15, 23, 42, .98) 45%);
+      border-radius: 24px;
+      padding: 22px 22px 18px;
+      border: 1px solid rgba(148, 163, 184, .4);
+      box-shadow: 0 24px 50px rgba(15, 23, 42, .8);
+    }
+
+    .hero-card-title {
+      font-size: .9rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-metric {
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+
+    .hero-metric small {
+      font-size: .9rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .hero-list {
+      list-style: none;
+      margin-top: 16px;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+
+    .hero-list li {
+      margin-bottom: 8px;
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+    }
+
+    .hero-list span.bullet {
+      color: var(--accent);
+      font-size: 1rem;
+      margin-top: 1px;
+    }
+
+    /* SECCIONES COMUNES */
+
+    section {
+      padding: 30px 0;
+      border-top: 1px solid rgba(31, 41, 55, 1);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-header h2 {
+      font-size: 1.5rem;
+    }
+
+    .section-header p {
+      font-size: .9rem;
+      color: var(--muted);
+      max-width: 430px;
+    }
+
+    /* GRID */
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 18px 16px;
+      border: 1px solid rgba(30, 64, 175, .4);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: .88rem;
+      color: var(--muted);
+    }
+
+    .badge-small {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .75rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 1);
+      border: 1px solid rgba(148, 163, 184, .25);
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    /* PLANES */
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .plan {
+      background: linear-gradient(145deg, #020617, #020617);
+      border-radius: 20px;
+      padding: 20px 18px 18px;
+      border: 1px solid rgba(37, 99, 235, .5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plan.popular {
+      border-color: var(--accent);
+      box-shadow: 0 22px 40px rgba(22, 163, 74, .20);
+    }
+
+    .plan-label {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: rgba(22, 163, 74, .15);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: .72rem;
+      color: var(--accent);
+      border: 1px solid rgba(22, 163, 74, .5);
+    }
+
+    .plan h3 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .plan-price {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 6px 0 4px;
+    }
+
+    .plan-price span {
+      font-size: .9rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .plan ul {
+      list-style: none;
+      margin: 8px 0 10px;
+      font-size: .86rem;
+      color: var(--muted);
+    }
+
+    .plan ul li {
+      margin-bottom: 6px;
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+    }
+
+    .plan ul li span {
+      color: var(--accent);
+      font-size: .9rem;
+      margin-top: 1px;
+    }
+
+    .plan small {
+      font-size: .75rem;
+      color: var(--muted);
+    }
+
+    .plan .btn-plan {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .85rem;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, .45);
+      cursor: pointer;
+    }
+
+    /* CTA FINAL */
+
+    .cta-final {
+      text-align: center;
+      padding: 30px 0 10px;
+    }
+
+    .cta-final p {
+      font-size: .9rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: .78rem;
+      color: var(--muted);
+      padding: 20px 0 30px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-card {
+        order: -1;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .grid-2, .plans {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .hero {
+        padding-top: 20px;
+      }
+      .hero-title {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div>
+      <div class="brand">
+        <div class="brand-circle"></div>
+        <div>
+          LucianoGrowth
+          <div class="nav-tagline">Campañas TOFU + MOFU para negocios locales</div>
+        </div>
+      </div>
+    </div>
+    <div class="pill">
+      100% remoto · Enfocado en dueños de negocios
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-eyebrow">marca personal · estrategia · anuncios</div>
+        <h1 class="hero-title">
+          Hago que tu <span>negocio local</span> sea visible en Instagram con poca inversión.
+        </h1>
+        <p class="hero-subtitle">
+          Me dedico a crear y optimizar campañas TOFU + MOFU para negocios que quieren
+          más visibilidad, más visitas al perfil y más clientes cerca suyo, sin quemar presupuesto.
+        </p>
+
+        <div class="hero-badges">
+          <span>✅ Enfoque en negocios pequeños y locales</span>
+          <span>📍 Segmentación por zona y ciudad</span>
+          <span>💰 Desde USD $3–$5 diarios en anuncios</span>
+        </div>
+
+        <div class="hero-cta">
+          <a class="btn-primary" href="https://wa.me/56912345678" target="_blank" rel="noopener">
+            Quiero hablar de mi negocio <span class="arrow">↗</span>
+          </a>
+          <div class="hero-note">
+            Respondo personalmente. <strong>Sin vendedores ni bots.</strong>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="hero-card-title">¿Qué puedes esperar?</div>
+        <div class="hero-metric">
+          +Visibilidad<span> / mes</span>
+        </div>
+        <ul class="hero-list">
+          <li><span class="bullet">•</span> Más personas de tu ciudad viendo tus publicaciones.</li>
+          <li><span class="bullet">•</span> Más visitas al perfil para que conozcan lo que ofreces.</li>
+          <li><span class="bullet">•</span> Interacción real: likes, guardados, mensajes.</li>
+          <li><span class="bullet">•</span> Estrategia clara: TOFU para atraer, MOFU para acercar.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- SOBRE MÍ / CÓMO TRABAJO -->
+    <section>
+      <div class="section-header">
+        <h2>¿Quién soy y qué hago exactamente?</h2>
+        <p>
+          Me especializo en una sola cosa: ayudar a negocios a ser vistos en redes,
+          usando campañas simples y bien pensadas. No necesitas aprender Ads ni volverte experto: para eso estoy yo.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="badge-small">🎯 Enfoque</span>
+          <h3>Campañas TOFU + MOFU pensadas para negocios reales</h3>
+          <p>
+            No hago “de todo un poco”. Trabajo contigo en la parte más importante:
+            que más personas correctas vean tu negocio, te recuerden y se acerquen.
+            Eso se logra con una buena estructura de TOFU (descubrimiento) y MOFU (interés).
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="badge-small">🤝 Forma de trabajo</span>
+          <h3>Sin humo, sin promesas mágicas, con números claros</h3>
+          <p>
+            Definimos juntos un presupuesto cómodo, yo configuro y optimizo tus anuncios,
+            y todos los meses revisamos qué funcionó mejor. Te explico en lenguaje simple,
+            para que sepas qué está pasando con tu dinero.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIO TOFU / MOFU -->
+    <section>
+      <div class="section-header">
+        <h2>¿Qué incluye mi servicio?</h2>
+        <p>
+          Puedes verlo como un “sistema de visibilidad mensual” para tu negocio. Yo me encargo
+          de que siempre haya gente nueva conociéndote y gente ya interesada volviendo a verte.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="badge-small">TOFU · Descubrimiento</span>
+          <h3>Hago que más personas te conozcan</h3>
+          <p>
+            Campañas pensadas para llegar a personas nuevas de tu ciudad:
+            interacción, alcance y visualización de tus mejores piezas de contenido.
+            Ideal para que tu cuenta deje de estar “escondida” en Instagram.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="badge-small">MOFU · Interés</span>
+          <h3>Llevo tráfico a tu perfil de Instagram</h3>
+          <p>
+            Una vez que la gente ya te vio alguna vez, reforzamos ese interés con campañas
+            que los llevan directo a tu perfil: ven tus fotos, precios, menú, servicios y toman la decisión de escribirte o visitarte.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARA QUIÉN ES -->
+    <section>
+      <div class="section-header">
+        <h2>¿Es para tu negocio?</h2>
+        <p>
+          Este servicio no es para todos. Funciona mejor cuando ya tienes algo que ofrecer
+          y necesitas que más personas se enteren.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="badge-small">✅ Ideal para</span>
+          <ul style="list-style:none; margin-top:4px; font-size:.9rem; color:var(--muted);">
+            <li>• Restaurantes, cafeterías, foodtrucks.</li>
+            <li>• Barberías, spas, salones de belleza.</li>
+            <li>• Tiendas físicas, estudios, talleres.</li>
+            <li>• Negocios locales que ya publican contenido pero casi nadie lo ve.</li>
+            <li>• Emprendedores que quieren empezar a invertir poco, pero bien.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="badge-small">⛔ No es para</span>
+          <ul style="list-style:none; margin-top:4px; font-size:.9rem; color:var(--muted);">
+            <li>• Proyectos que aún no saben qué venden.</li>
+            <li>• Personas que esperan resultados mágicos en 48 horas.</li>
+            <li>• Negocios que quieren que yo gestione mensajes, reservas o atención al cliente.</li>
+            <li>• Quienes no están dispuestos a invertir nada en anuncios.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLANES -->
+    <section>
+      <div class="section-header">
+        <h2>Planes simples y claros</h2>
+        <p>
+          Tú controlas tu presupuesto de anuncios. Yo solo cobro por la gestión mensual y el trabajo estratégico.
+        </p>
+      </div>
+
+      <div class="plans">
+        <div class="plan">
+          <h3>Plan Inicio</h3>
+          <div class="plan-price">
+            USD $150 <span>/ mes</span>
+          </div>
+          <ul>
+            <li><span>✓</span> 1 campaña TOFU + 1 campaña MOFU activas.</li>
+            <li><span>✓</span> Configuración y optimización semanal.</li>
+            <li><span>✓</span> Revisión de públicos y segmentación local.</li>
+            <li><span>✓</span> Reporte simple al final de cada mes.</li>
+          </ul>
+          <small>Recomendado para negocios que recién comienzan a invertir en anuncios.</small><br>
+          <a class="btn-plan" href="https://wa.me/56912345678?text=Hola%20Luciano,%20quiero%20el%20Plan%20Inicio" target="_blank" rel="noopener">
+            Elegir este plan ↗
+          </a>
+        </div>
+
+        <div class="plan popular">
+          <div class="plan-label">Más elegido</div>
+          <h3>Plan Crecimiento</h3>
+          <div class="plan-price">
+            USD $250 <span>/ mes</span>
+          </div>
+          <ul>
+            <li><span>✓</span> Estrategia TOFU + MOFU con más variaciones de anuncios.</li>
+            <li><span>✓</span> Hasta 4 creativos optimizados para campañas.</li>
+            <li><span>✓</span> Ajustes finos de presupuesto según rendimiento.</li>
+            <li><span>✓</span> Sesión mensual (online) para revisar números y próximos pasos.</li>
+          </ul>
+          <small>Ideal para negocios que ya venden y quieren acelerar su crecimiento local.</small><br>
+          <a class="btn-plan" href="https://wa.me/56912345678?text=Hola%20Luciano,%20quiero%20el%20Plan%20Crecimiento" target="_blank" rel="noopener">
+            Quiero este plan ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final">
+      <h2>¿Hablamos de tu negocio?</h2>
+      <p>
+        Envíame un mensaje y cuéntame qué tipo de negocio tienes, en qué ciudad estás y cuánto te gustaría invertir al mes.
+        Te respondo con una propuesta honesta y aterrizada.
+      </p>
+      <div style="margin-top:16px;">
+        <a class="btn-primary" href="https://wa.me/56912345678" target="_blank" rel="noopener">
+          Enviar mensaje por WhatsApp
+        </a>
+      </div>
+      <p style="margin-top:10px;">También podemos partir solo con una llamada corta para ver si tiene sentido trabajar juntos.</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 LucianoGrowth · Campañas TOFU + MOFU para negocios locales.  
+    Tú manejas tu presupuesto de anuncios. Yo solo gestiono y optimizo tus campañas.
+  </footer>
+</body>
+</html>
